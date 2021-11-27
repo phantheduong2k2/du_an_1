@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../content/css/style.css">
+    <link rel="stylesheet" href="content/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -22,13 +22,16 @@
         <!-- end header-top -->
         <div class="header-nav">
             <nav class="navbar-header">
-                <a href="<?=$SITE_URL?>/trang-chinh?trang-chu.php">
-                    <img src="<?=$CONTENT_URL?>/images/logo.png" alt="" class="logo-img">
+                <a href="#">
+                    <img src="content/images/logo.png" alt="" class="logo-img">
                 </a>
             </nav>
-            <?php
-            require_once "layout/menu.php"
-            ?>
+            <ul class="navbar-menu">
+                <li><a href="#">Sản Phẩm</a></li>
+                <li><a href="#">Giới Thiệu</a></li>
+                <li><a href="#">Liên Hệ</a></li>
+                <li><a href="#">Tin Tức</a></li>
+            </ul>
             <div class="navbar-icon">
                 <a href="">
                     <ion-icon name="search"></ion-icon>
@@ -43,7 +46,9 @@
         </div>
         <!-- end header-nav -->
         <?php
-        require_once $VIEW_NAME;
+        
+        include_once $mainView;
+
         ?>
           <!-- end content -->
           <div class="support-function">
@@ -52,12 +57,12 @@
               </div>
               <div class="support-function-img">
                     <a href="">
-                        <img src="<?=$CONTENT_URL?>/images/i-ins.png" alt="">
-                        <img src="<?=$CONTENT_URL?>/images/i-fb.png" alt="">
-                        <img src="<?=$CONTENT_URL?>/images/i-mess.png" alt="">
-                        <img src="<?=$CONTENT_URL?>/images/i-tg.png" alt="">
-                        <img src="<?=$CONTENT_URL?>/images/i-tw.png" alt="">
-                        <img src="<?=$CONTENT_URL?>/images/i-phone.png" alt="">
+                        <img src="content/images/i-ins.png" alt="">
+                        <img src="content/images/i-fb.png" alt="">
+                        <img src="content/images/i-mess.png" alt="">
+                        <img src="content/images/i-tg.png" alt="">
+                        <img src="content/images/i-tw.png" alt="">
+                        <img src="content/images/i-phone.png" alt="">
                     </a>
               </div>
           </div>
