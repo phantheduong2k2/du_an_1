@@ -2,6 +2,7 @@
 <div class="content-wrapper">
 <div class="alert alert-info">
     <h3>Chi tiết</h3>
+    <!--  -->
 </div>
 <div class="card-body">
 <form action="index.php" method="post">
