@@ -14,19 +14,18 @@
                 </thead>
                 <tbody>
                 <?php
-                            foreach ($listdanhmuc as $danhmuc) {
-                                extract($danhmuc);
-                                $suadanhmuc="index.php?act=suadanhmuc&ma_loai=".$ma_loai;
-                                $xoadanhmuc="index.php?act=xoadanhmuc&ma_loai=".$ma_loai;
+                    foreach ($listdanhmuc as $danhmuc) {
+                        extract($danhmuc);
+                        $suadanhmuc="index.php?act=suadanhmuc&ma_loai=".$ma_loai;
+                        $xoadanhmuc="index.php?act=xoadanhmuc&ma_loai=".$ma_loai;
 
-                                echo '<tr>
-                                        <td>'.$ma_loai.'</td>
-                                        <td>'.$ten_loai.'</td>
-                                        <td><a href="'.$suadanhmuc.'"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="'.$xoadanhmuc.'"><input class="btn btn-primary" type="button" value="Xóa"></a></td>
-                                    </tr>';
-                            }
-                        
-                        ?>
+                        echo '<tr>
+                                <td>'.$ma_loai.'</td>
+                                <td>'.$ten_loai.'</td>
+                                <td><a href="'.$suadanhmuc.'"><input class="btn btn-primary" type="button" value="Sửa"></a> <a href="'.$xoadanhmuc.'"><input class="btn btn-primary" type="button" value="Xóa"></a></td>
+                            </tr>';
+                    }
+                ?>
                 </tbody>
             </table>
             <div class="card-footer">
