@@ -1,3 +1,13 @@
 <?php
-header("Location: /du-an-1/site/trang-chinh");
+$url = isset($_GET['url']) ? $_GET['url'] : '/';
+switch ($url) {
+    case '/':
+        require_once "site/business/homepage.php";
+        home();
+        break;
+
+    default:
+        # code
+        break;
+}
 ?>
