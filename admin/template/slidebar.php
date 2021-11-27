@@ -72,8 +72,12 @@
               <a href="index.php?act=dsbinhluan" class="nav-link "><i class="fa fa-chevron-right" aria-hidden="true"></i> Quản lí bình luận</a>
             </li>
             <li class="nav-item">
+              <a href="index.php?act=dsslide" class="nav-link "><i class="fa fa-chevron-right" aria-hidden="true"></i>Quản lý Slide</a>
+            </li>
+            <li class="nav-item">
               <a href="index.php?act=thongke" class="nav-link "><i class="fa fa-chevron-right" aria-hidden="true"></i> Thống kê</a>
             </li>
+            
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
