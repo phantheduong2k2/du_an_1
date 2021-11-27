@@ -28,8 +28,12 @@
     }
    
     function update_sanpham($ten_hh,$don_gia,$giam_gia,$mo_ta,$ngay_nhap,$dac_biet,$so_luong,$hinh){
-        
-        
+         if($hinh!=""){
+             $sql =  "UPDATE hang_hoa SET te_hh='.$ten_hh.'";
+         }
+         else{
+
+         }
     }
 
 ?>

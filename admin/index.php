@@ -1,10 +1,15 @@
 <?php
 include "../dao/pdo.php";
+include "../global.php";
 include "../dao/danhmuc.php";
 include "../dao/sanpham.php";
+include "../dao/slide.php";
+include "../dao/binh-luan.php";
+include "../dao/thong-ke.php";
 include "template/head.php";
 include "template/slidebar.php";
 // ------------kIÊM TRA ĐƯỜNG TRUYỀN VÀ CHẢ VỀ KẾT QUẢ-------------------------
+extract($_REQUEST);
 if (isset($_GET['act'])) {
      $act = $_GET['act'];
      switch ($act) {
@@ -136,9 +141,85 @@ if (isset($_GET['act'])) {
                     
                }
                break;
+          
                //------------KẾT THÚC DANH SÁCH SẢN PHẨM------------------------------------ 
-          default:
 
+          case 'dsbinhluan':
+               $items = thong_ke_binh_luan();
+               include  "binh-luan/list.php";
+               break;
+          case 'chi-tiet-binh-luan':
+               if(isset($_GET["ma_hh"])){ 
+                    $items = binh_luan_select_by_ma_hang_hoa($ma_hh);
+                    if(count($items) == 0){
+                    $items = thong_ke_binh_luan();
+                    include  "binh-luan/list.php";
+                    }else{
+                    include "binh-luan/detail.php";
+                    }
+               }else{
+                    $items = thong_ke_binh_luan();
+                    include  "binh-luan/list.php";
+               }
+               break;
+          case 'xoa-binh-luan':
+               if(isset($_GET["btn_delete"])){
+                    try {
+                    binh_luan_delete($ma_bl);
+                    $MESSAGE = "Xóa thành công!";
+                    } 
+                    catch (Exception $exc) {
+                    $MESSAGE = "Xóa thất bại!";
+                    }
+               }
+               $items = thong_ke_binh_luan();
+               include  "binh-luan/list.php";
+          break;
+     //    end bình luận
+
+          case 'dsslide':
+               $items =  slide_select_all();
+               include  "slide/list.php";
+               break;
+          case 'xoa-slide':
+               if(isset($_GET["btn_delete"])){
+               if(isset($_GET["btn_delete"])){
+                    try {
+                         slide_delete($ma_slide);
+                         $MESSAGE = "Xóa thành công!";
+                    } 
+                    catch (Exception $exc) {
+                         $MESSAGE = "Xóa thất bại!";
+                    }
+               }
+               }
+          $items = slide_select_all();
+          include  "slide/list.php";
+               break;
+
+          case 'nhap-them-slide':
+               include  "slide/new.php";
+               break;
+
+          case 'them-moi-slide':
+               if(isset($_POST['btn_insert'])){
+               $up_hinh = save_file("hinh_anh", "$IMAGE_DIR/slide/");
+               $hinh_anh = strlen($up_hinh) > 0 ? $up_hinh : 'slide.png';
+               try {
+                    slide_insert( $ma_slide, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
+                    unset($ma_slide, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
+                    $MESSAGE = 'Thêm mới thành công';
+               } catch (Exception $exc) {
+                    $MESSAGE = 'Thêm mới thất bại';
+               }
+               }
+               include  "slide/new.php";
+               break;
+          // End slide
+          default:
+               include "template/home.php";
                break;
      }
+}else{
+     include "template/home.php";
 }
