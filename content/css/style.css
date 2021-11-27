@@ -147,7 +147,7 @@ form>.form-control-custom{
 }
 
 .product-box:hover .product-box-text{
-    transform: translateY(-100%);
+    transform: translateY(-99%);
     visibility: visible;
     width: 100%;
 }
