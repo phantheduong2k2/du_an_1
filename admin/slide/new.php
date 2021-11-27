@@ -31,7 +31,7 @@
            </div>
            <div class="form-group col-sm-4">
                <label for="">Hình ảnh</label>
-               <input type="file" class="form-control" name="hinh_anh">
+               <input type="file" class="form-control" name="hinh_anhs">
            </div>
            <div class="form-group col-sm-4">
                <button class="btn-default" name="btn_insert">Thêm mới</button>
