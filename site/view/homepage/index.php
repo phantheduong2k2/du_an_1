@@ -37,275 +37,55 @@
     </div>
     <div class="products trend-products">
         <div class="product">
+            <?php
+            foreach ($products as $product) {
+                extract($product);
+            ?>
             <div class="product-box">
                 <div class="product-box-img">
-                    <img src="<?=$CONTENT_URL?>/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
+                    <img src="content/images/products/<?=$hinh?>" alt="">
                 </div>
                 <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
+                    <p class="product-name"><?=$ten_hh?></p>
+                    <p class="product-rate-sale"><?=$don_gia?></p>
                     <del class="product-rate">500k</del>
                     <form action="">
                         <input class="form-control-custom" type="button" value="Thêm vào giỏ">
                     </form>
                 </div>
             </div>
-            
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="<?=$CONTENT_URL?>/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="<?=$CONTENT_URL?>/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
+    <!-- end trent products trend-products-->
     <div class="title">
         <h1>Sản phẩm</h1>
     </div>
     <div class="products">
         <div class="product">
+            <?php
+            foreach ($products as $product) {
+                extract($product);
+            ?>
             <div class="product-box">
                 <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
+                    <img src="content/images/products/<?=$hinh?>" alt="">
                 </div>
                 <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
+                    <p class="product-name"><?=$ten_hh?></p>
+                    <p class="product-rate-sale"><?=$don_gia?></p>
                     <del class="product-rate">500k</del>
                     <form action="">
                         <input class="form-control-custom" type="button" value="Thêm vào giỏ">
                     </form>
                 </div>
             </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="../content/images/f55dccd61801a4a78b3eec28c650c2ac.jpg" alt="">
-                </div>
-                <div class="product-box-text">
-                    <p class="product-name">Giày Adidas</p>
-                    <p class="product-rate-sale">500k</p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
+            <?php
+            }
+            ?>
         </div>
     </div>
-    <!-- end products trend-products -->
+    <!-- end products-->
 </div>

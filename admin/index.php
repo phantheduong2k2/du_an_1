@@ -72,7 +72,7 @@ if (isset($_GET['act'])) {
                     $dac_biet = $_POST['dac_biet'];
                     $so_luong = $_POST['so_luong'];
                     $hinh = $_FILES['hinh']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../content/images/products/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
                          // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
@@ -130,7 +130,7 @@ if (isset($_GET['act'])) {
                     $dac_biet = $_POST['dac_biet'];
                     $so_luong = $_POST['so_luong'];
                     $hinh = $_FILES['hinh']['name'];
-                    $target_dir = "../upload/";
+                    $target_dir = "../content/images/products/";
                     $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
                     if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
                          // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";

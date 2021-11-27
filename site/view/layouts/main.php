@@ -47,7 +47,7 @@
         <!-- end header-nav -->
         <?php
         
-        include_once $mainView;
+        include_once $view;
 
         ?>
           <!-- end content -->
