@@ -1,4 +1,5 @@
 <?php
+
    function insert_sanpham($ten_hh,$don_gia,$giam_gia,$hinh,$mo_ta,$ngay_nhap,$dac_biet,$so_luong,$ma_loai){
     $sql="insert into hang_hoa(ten_hh,don_gia,giam_gia,hinh,mo_ta,ngay_nhap,dac_biet,so_luong,ma_loai) values('$ten_hh','$don_gia','$giam_gia','$hinh','$mo_ta','$ngay_nhap','$dac_biet','$so_luong','$ma_loai')";
     pdo_execute($sql);
