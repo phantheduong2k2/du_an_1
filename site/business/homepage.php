@@ -9,7 +9,7 @@ function home(){
     // var_dump($slide);
     // die;
     client_render("homepage/index.php", compact('products','slides'));  //compact('data') = ['$data' => $data] : tức là bó lại
-    
+    // ffsfd
     
 }
 
