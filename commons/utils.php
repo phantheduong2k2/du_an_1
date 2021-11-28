@@ -14,3 +14,6 @@ function client_render($view, $data){
     $view = './site/view/' . $view; 
     include_once "./site/view/layouts/main.php";
 }
+function exist_param($fieldname){
+    return array_key_exists($fieldname,$_REQUEST);
+}
