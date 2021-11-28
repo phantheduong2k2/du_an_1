@@ -36,5 +36,9 @@
 
          }
     }
+    function san_pham_select_by_loai($ma_loai){
+        $sql = "SELECT * FROM hang_hoa WHERE ma_loai=?";
+        return pdo_query($sql, $ma_loai);
+    }
 
 ?>

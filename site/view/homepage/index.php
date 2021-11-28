@@ -40,6 +40,7 @@
             <?php
             foreach ($products as $product) {
                 extract($product);
+                
             ?>
             <div class="product-box">
                 <div class="product-box-img">
