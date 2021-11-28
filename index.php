@@ -1,6 +1,7 @@
 <?php
 require_once "./commons/utils.php";
 require_once "dao/pdo.php";
+
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
 switch ($url) {
     case '/':

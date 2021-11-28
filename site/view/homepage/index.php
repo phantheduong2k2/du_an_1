@@ -4,21 +4,19 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
+    
     <div class="carousel-inner">
+        <?php foreach($slide as $slides){ 
+             extract($slides);
+            ?>
         <div class="carousel-item active">
-        <img src="content/images/banner.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <img src="/content/images<?= $hinh_anh ?>" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>First slide label</h5>
+                <p>Some representative placeholder content for the first slide.</p>
+            </div>
         </div>
-        </div>
-        <div class="carousel-item">
-        <img src="content/images/banner.png" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
-        </div>
-        </div>
+        <?php } ?>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -28,7 +26,7 @@
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
     </button>
-    </div>
+</div>
 </div>
 <!-- end slide -->
 <div class="content-custom">
@@ -41,19 +39,19 @@
             foreach ($products as $product) {
                 extract($product);
             ?>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="content/images/products/<?=$hinh?>" alt="">
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="content/images/products/<?= $hinh ?>" alt="">
+                    </div>
+                    <div class="product-box-text">
+                        <p class="product-name"><?= $ten_hh ?></p>
+                        <p class="product-rate-sale"><?= $don_gia ?></p>
+                        <del class="product-rate">500k</del>
+                        <form action="">
+                            <input class="form-control-custom" type="button" value="Thêm vào giỏ">
+                        </form>
+                    </div>
                 </div>
-                <div class="product-box-text">
-                    <p class="product-name"><?=$ten_hh?></p>
-                    <p class="product-rate-sale"><?=$don_gia?></p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
             <?php
             }
             ?>
@@ -69,19 +67,19 @@
             foreach ($products as $product) {
                 extract($product);
             ?>
-            <div class="product-box">
-                <div class="product-box-img">
-                    <img src="content/images/products/<?=$hinh?>" alt="">
+                <div class="product-box">
+                    <div class="product-box-img">
+                        <img src="content/images/products/<?= $hinh ?>" alt="">
+                    </div>
+                    <div class="product-box-text">
+                        <p class="product-name"><?= $ten_hh ?></p>
+                        <p class="product-rate-sale"><?= $don_gia ?></p>
+                        <del class="product-rate">500k</del>
+                        <form action="">
+                            <input class="form-control-custom" type="button" value="Thêm vào giỏ">
+                        </form>
+                    </div>
                 </div>
-                <div class="product-box-text">
-                    <p class="product-name"><?=$ten_hh?></p>
-                    <p class="product-rate-sale"><?=$don_gia?></p>
-                    <del class="product-rate">500k</del>
-                    <form action="">
-                        <input class="form-control-custom" type="button" value="Thêm vào giỏ">
-                    </form>
-                </div>
-            </div>
             <?php
             }
             ?>
@@ -89,3 +87,9 @@
     </div>
     <!-- end products-->
 </div>
+<script>
+   $('.single-item').slick();
+   
+</script>
+
+				

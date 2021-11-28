@@ -4,7 +4,10 @@ function slide_select_all(){
     $sql = "SELECT * FROM slide";
         return pdo_query($sql);
 }
-
+function slide_select_show(){
+    $sql = "SELECT * FROM slide order by ngay_them desc limit 0,3";
+    return pdo_query($sql);
+}
 
 function slide_delete($ma_slide){
     $sql = "DELETE FROM slide WHERE ma_slide = ?";
