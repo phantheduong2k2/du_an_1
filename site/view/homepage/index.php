@@ -6,11 +6,11 @@
     </div>
     
     <div class="carousel-inner">
-        <?php foreach($slide as $slides){ 
-             extract($slides);
+        <?php foreach($slides as $slide){ 
+             extract($slide);
             ?>
         <div class="carousel-item active">
-            <img src="/content/images<?= $hinh_anh ?>" class="d-block w-100" alt="...">
+            <img src="content/images/slide/<?= $hinh_anh ?>" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>First slide label</h5>
                 <p>Some representative placeholder content for the first slide.</p>
@@ -87,9 +87,6 @@
     </div>
     <!-- end products-->
 </div>
-<script>
-   $('.single-item').slick();
-   
-</script>
+
 
 				

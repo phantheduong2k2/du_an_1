@@ -13,8 +13,8 @@ function slide_delete($ma_slide){
     $sql = "DELETE FROM slide WHERE ma_slide = ?";
         pdo_execute($sql, $ma_slide);
 }
-function slide_insert($ma_slide, $tieu_de, $noi_dung, $duong_dan, $hinh_anh){
-    $sql = "INSERT INTO slide(ma_slide,tieu_de,noi_dung,duong_dan,hinh_anh) VALUES(?,?,?,?,?)";
-    pdo_execute($sql,$ma_slide, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
+function slide_insert( $tieu_de, $noi_dung, $duong_dan, $hinh_anh){
+    $sql = "INSERT INTO slide(tieu_de,noi_dung,duong_dan,hinh_anh) VALUES(?,?,?,?)";
+    pdo_execute($sql, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
 }
 // slideshow

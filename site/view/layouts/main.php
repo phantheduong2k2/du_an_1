@@ -17,6 +17,98 @@
    $('.single-item').slick();
 </script>
 
+
+    <style>
+        .navbar-menu{
+            position: relative;
+            top:  25px;
+            left: 0%;
+            z-index: 1;
+        }
+        .mega-sub-menu{
+            position: absolute;
+        }
+        .mega-sub-menu{
+           background: #ffffff;
+        }
+        .sub-menu{
+           display: flex;
+           flex-direction: column;
+           align-items:center;
+           padding: 0;
+          
+        }
+        .mega-sub-menu-box>ul>li{
+            list-style: none;
+            width:100%;
+        }
+        .mega-sub-menu-box>ul>li>a{
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        .mega-sub-menu-box>ul>li {
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-bottom: 0.5px solid #ccc;
+        }
+        .mega-sub-menu-box>ul>.sub-menu-link-end {
+            border-bottom:none;
+        }
+        .mega-sub-menu-box>.sub-menu{
+            width:100px;     
+        }
+        .mega-sub-menu:hover{
+            border-top:1px solid black;
+        }
+        
+        .sub-menu-link>ul>li>a{
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+
+        }
+        .sub-menu-link>ul>li{
+            list-style: none;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border-bottom: 0.5px solid #ccc;
+        }
+        .sub-menu-link{
+            background: #fff;
+        }
+        .sub-menu-link>li{
+            position: relative;
+            
+        }
+        .sub-menu-link>ul{
+            position: absolute;
+            left:100%;
+            width:100px;
+        }
+        .navbar-menu-link>.mega-sub-menu{
+            display: none;
+        }
+      
+        /* hover */
+        .navbar-menu-link:hover .mega-sub-menu{
+            display: block;
+        }
+       
+        .navbar-menu-link-2>.mega-sub-menu-2{
+            display: none;
+        }
+      
+        /* hover */
+        .navbar-menu-link-2:hover .mega-sub-menu-2{
+            display: block;
+        }
+    </style>
 </head>
 <body>
     <div class="container-custom">
@@ -33,7 +125,56 @@
                 </a>
             </nav>
             <ul class="navbar-menu">
-                <li><a href="#">Sản Phẩm</a></li>
+                <li class="navbar-menu-link">
+                    <a href="#">Sản Phẩm</a>
+                    <div class="mega-sub-menu">
+                        <div class="mega-sub-menu-box">
+                            <ul class="sub-menu">
+                                <li class="sub-menu-link navbar-menu-link-2"><a href="#">Bóng đá</a>
+                                    <ul class="sub-menu mega-sub-menu-2">
+                                        <?php
+                                        foreach ($categories as $category) {
+                                            extract($category);
+                                            $href = "category&ma_loai=$ma_loai";
+                                        ?>
+                                        
+                                        <li class="sub-menu-link"><a href="<?=$href?>"><?=$ten_loai?></a></li>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu-link navbar-menu-link-2"><a href="#">Chạy</a>
+                                    <ul class="sub-menu mega-sub-menu-2">
+                                        <?php
+                                        foreach ($categories as $category) {
+                                            extract($category);
+                                        ?>
+                                        <li class="sub-menu-link"><a href="#"><?=$ten_loai?></a></li>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </li>
+                                <li class="sub-menu-link navbar-menu-link-2"><a href="#">Tập luyện</a>
+                                    <ul class="sub-menu mega-sub-menu-2">
+                                        <?php
+                                        foreach ($categories as $category) {
+                                            extract($category);
+                                        ?>
+                                        <li class="sub-menu-link"><a href="#"><?=$ten_loai?></a></li>
+
+                                        <?php
+                                        }
+                                        ?>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#">Giới Thiệu</a></li>
                 <li><a href="#">Liên Hệ</a></li>
                 <li><a href="#">Tin Tức</a></li>
@@ -77,7 +218,7 @@
             <ul class="ul-footer-parent">
                 <li class="li-footer-parent">
                     <a href="">
-                        <img src="../../content/images/logo.png" alt="" class="logo-img">
+                        <img src="content/images/logo.png" alt="" class="logo-img">
                     </a>
                 </li>
                 <li class="li-footer-parent">

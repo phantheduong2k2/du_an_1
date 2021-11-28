@@ -12,6 +12,10 @@ switch ($url) {
         require_once "site/business/contact.php";
         contact();
         break;
+    case 'category':
+        require_once "site/business/category.php";
+        category();
+        break;
     default:
         # code
         break;

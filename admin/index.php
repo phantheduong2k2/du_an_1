@@ -206,8 +206,8 @@ if (isset($_GET['act'])) {
                $up_hinh = save_file("hinh_anh", "$IMAGE_DIR/slide/");
                $hinh_anh = strlen($up_hinh) > 0 ? $up_hinh : 'slide.png';
                try {
-                    slide_insert( $ma_slide, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
-                    unset($ma_slide, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
+                    slide_insert( $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
+                    unset( $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
                     $MESSAGE = 'Thêm mới thành công';
                } catch (Exception $exc) {
                     $MESSAGE = 'Thêm mới thất bại';
