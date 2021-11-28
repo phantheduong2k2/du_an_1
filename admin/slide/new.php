@@ -14,10 +14,6 @@
     <div class="card-body">
         <form action="index.php?act=them-moi-slide" method="post" enctype="multipart/form-data">
            <div class="form-group col-sm-4">
-               <label for="">Mã slide</label>
-               <input type="text" class="form-control" name="ma_slide">
-           </div>
-           <div class="form-group col-sm-4">
                <label for="">Tiêu đề</label>
                <input type="text" class="form-control" name="tieu_de">
            </div>
@@ -31,7 +27,7 @@
            </div>
            <div class="form-group col-sm-4">
                <label for="">Hình ảnh</label>
-               <input type="file" class="form-control" name="hinh_anhs">
+               <input type="file" class="form-control" name="hinh_anh">
            </div>
            <div class="form-group col-sm-4">
                <button class="btn-default" name="btn_insert">Thêm mới</button>
