@@ -6,9 +6,7 @@
     </div>
     
     <div class="carousel-inner">
-        <?php foreach($slides as $slide){ 
-             extract($slide);
-            ?>
+     
         <div class="carousel-item active">
             <img src="content/images/slide/<?= $hinh_anh ?>" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
@@ -16,7 +14,7 @@
                 <p>Some representative placeholder content for the first slide.</p>
             </div>
         </div>
-        <?php } ?>
+        
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

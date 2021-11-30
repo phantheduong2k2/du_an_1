@@ -216,6 +216,144 @@ if (isset($_GET['act'])) {
                include  "slide/new.php";
                break;
           // End slide
+          //------------KẾT THÚC DANH SÁCH DANH MỤC------------------------------------ //
+          case 'dskhachhang':
+                    
+               include "khachhang/dskhachhang.php";
+             
+                   break;
+          case 'add':
+               
+               include "./../dao/khach-hang.php";
+               include "./khachhang/xuly/add.php";  
+                       
+                                  
+          break;
+          case 'xoa-khachhang':
+               include "./../dao/khach-hang.php";
+               if(isset($_GET["btn_delete"])){
+                    try {
+                    khach_hang_delete($ma_kh);
+                    $MESSAGE = "Xóa thành công!";
+                    } 
+                    catch (Exception $exc) {
+                    $MESSAGE = "Xóa thất bại!";
+                    }
+               }
+
+                include "./khachhang/dskhachhang.php";
+
+               break;
+               
+          case 'add_kh':
+               include_once "./../dao/khach-hang.php";
+
+               if (isset($_POST['btn_insert']) ) {
+                    $ma_kh = $_POST['ma_kh'];
+                    $ten_kh = $_POST['ten_kh'];
+                    $email = $_POST['email'];
+                    $dia_chi = $_POST['dia_chi'];
+                    $ngay_sinh = $_POST['ngay_sinh'];
+                    $mat_khau = $_POST['mat_khau'];
+                    $kich_hoat = $_POST['kich_hoat'];
+                    $gioi_tinh = $_POST['gioi_tinh'];
+                    $hinh = $_FILES['hinh']['name'];
+                    // $target_dir = "../content/images/products/";
+                    // $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                    // if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                    //      echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    // } else {
+                    //       echo "Sorry, there was an error uploading your file.";
+                    // }
+                    $fileUpload = $_FILES['hinh'];
+                    if (strpos($fileUpload["type"], 'image') === false) {    
+                        $_SESSION['error'] = "Avatar phải là ảnh";
+                    //     header("Location: /du-an-1/admin/index.php?act=add");
+                        die;
+                    }
+                    if ($fileUpload["size"] > 3000000) {
+                        $_SESSION['error'] = "Avatar phải nhỏ hơn 3M";
+                    //     header("Location: /du-an-1/admin/index.php?act=add");
+                        die;
+                    }
+                    $storePath = '../content/images/products/';
+                    $filename = $fileUpload['name'];
+                    $path = $storePath . $filename;
+                    move_uploaded_file($fileUpload['tmp_name'], $path);
+                    $hinh = '../content/images/products/' . $filename;
+
+                    khach_hang_insert($ma_kh, $ten_kh, $email,  $sdt , $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh, $kich_hoat);
+                    $thongbao = "Thêm thành công";
+               }
+               
+           
+               include "khachhang/dskhachhang.php";
+                   
+                    
+                    
+
+               break;
+               case 'update_khachhang';
+               
+               break;
+          //------------KẾT THÚC DANH SÁCH DANH MỤC------------------------------------ //
+          case 'dsnhanvien':
+               include "nhanvien/dsnhanvien.php";
+               break;
+               case 'add_nv':
+                    include_once "./../dao/nhan_vien.php";
+                    include "./nhanvien/add_nv.php";  
+                    if (isset($_POST['btn_insert']) ) {
+                         $ma_nv = $_POST['ma_nv'];
+                         $ten_nv = $_POST['ten_nv'];
+                         $email = $_POST['email'];
+                         $dia_chi = $_POST['dia_chi'];
+                         $ngay_sinh = $_POST['ngay_sinh'];
+                         $mat_khau = $_POST['mat_khau'];
+                         $kich_hoat = $_POST['kich_hoat'];
+                         $gioi_tinh = $_POST['gioi_tinh'];
+                         $hinh = $_FILES['hinh']['name'];
+                         $vai_tro = $_POST['vai_tro'];
+                         $fileUpload = $_FILES['hinh'];
+                         if (strpos($fileUpload["type"], 'image') === false) {    
+                             $_SESSION['error'] = "Avatar phải là ảnh";
+                             header("Location: /du-an-1/admin/index.php?act=add_nv");
+                             die;
+                         }
+                         if ($fileUpload["size"] > 3000000) {
+                             $_SESSION['error'] = "Avatar phải nhỏ hơn 3M";
+                             header("Location: /du-an-1/admin/index.php?act=add_nv");
+                             die;
+                         }
+                         $storePath = '../content/images/products/';
+                         $filename = $fileUpload['name'];
+                         $path = $storePath . $filename;
+                         move_uploaded_file($fileUpload['tmp_name'], $path);
+                         $hinh = '../content/images/products/' . $filename;
+     
+                         nhan_vien_insert($ma_nv, $ten_nv, $email,  $sdt , $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh, $kich_hoat, $vai_tro);
+                         $thongbao = "Thêm thành công";
+                    }
+                    include "./nhanvien/dsnhanvien.php";
+                 break;
+                 case 'xoa-nv':
+                    include "./../dao/nhan_vien.php";
+                    if(isset($_GET["btn_delete"])){
+                         try {
+                         nhan_vien_delete($ma_nv);
+                         $MESSAGE = "Xóa thành công!";
+                         } 
+                         catch (Exception $exc) {
+                         $MESSAGE = "Xóa thất bại!";
+                         }
+                    }
+     
+                    include "./nhanvien/dsnhanvien.php";
+     
+                    break;
+
+
+                   
           default:
                include "template/home.php";
                break;
