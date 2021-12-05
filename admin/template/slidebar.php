@@ -77,7 +77,12 @@
             <li class="nav-item">
               <a href="index.php?act=thongke" class="nav-link "><i class="fa fa-chevron-right" aria-hidden="true"></i> Thống kê</a>
             </li>
-            
+            <li class="nav-item">
+              <a href="index.php?act=dskhachhang" class="nav-link "><i class="fa fa-chevron-right" aria-hidden="true"></i> Quản lý khách hàng</a>
+            </li>
+            <li class="nav-item">
+              <a href="index.php?act=dsnhanvien" class="nav-link "><i class="fa fa-chevron-right" aria-hidden="true"></i> Quản lý Nhân viên</a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
