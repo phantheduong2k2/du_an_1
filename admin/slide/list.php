@@ -21,24 +21,35 @@
                         <th>Nội dung </th>
                         <th>Đường dẫn</th>
                         <th>Hình ảnh</th>
-                        <th>Chức năng</th>
+                        <th>Chức năng xóa</th>
+                        <th>Chức năng sửa</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
                         foreach ($items as $item) {
                             extract($item);
+                            $suasp = "index.php?act=sua_slide&ma_slide=" . $ma_slide;
+                            $hinhpath = "../content/images/slide/" . $hinh_anh;
+                            if (is_file($hinhpath)) {
+                                $hinh_anh = "<img src='" . $hinhpath . "' height='90'>";
+                            } else {
+                                $hinh_anh = "no photo";
+                            }
                         ?>
                         <tr>
                             <td><?=$ma_slide?></td>
                             <td><?=$tieu_de?></td>
                             <td><?=$noi_dung?></td>
                             <td><?=$duong_dan?></td>
-                            <td><img src="<?=$CONTENT_URL?>/images/slide/<?=$hinh_anh?>" width='50px'></td>
+                            <td><?=$hinh_anh?></td>
                             <td>
-                                <button class="btn btn-default"><a href="index.php?act=cap-nhat-slide&ma_slide=<?=$ma_slide?>">Sửa</a></button>
                                 <button class="btn btn-default"><a href="index.php?act=xoa-slide&btn_delete&ma_slide=<?=$ma_slide?>">Xóa</a></button>
                             </td>
+                            <?php echo '<td>
+                                <a href="'. $suasp .'"><input class="btn btn-primary" type="button" value="Sửa">
+                                </td>';
+                                ?>
                         </tr>
                         <?php
                         }

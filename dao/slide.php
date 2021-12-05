@@ -17,4 +17,17 @@ function slide_insert( $tieu_de, $noi_dung, $duong_dan, $hinh_anh){
     $sql = "INSERT INTO slide(tieu_de,noi_dung,duong_dan,hinh_anh) VALUES(?,?,?,?)";
     pdo_execute($sql, $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
 }
+function loadone_slide($ma_slide){
+    $sql="select * from slide where ma_slide=".$ma_slide;
+    $slide=pdo_query_one($sql);
+    return $slide;
+}
+
+function  slide_update($tieu_de, $noi_dung, $duong_dan,$hinh_anh,$ma_slide){
+    if($hinh_anh!="")
+    $sql="UPDATE slide set tieu_de='".$tieu_de."', noi_dung='".$noi_dung."',duong_dan='".$duong_dan."',hinh_anh='".$hinh_anh."' where ma_slide=".$ma_slide;
+    else 
+    $sql="UPDATE slide set tieu_de='".$tieu_de."', noi_dung='".$noi_dung."',duong_dan='".$duong_dan."' where ma_slide=".$ma_slide; 
+    pdo_execute($sql);
+}
 // slideshow

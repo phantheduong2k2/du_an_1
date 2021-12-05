@@ -28,17 +28,15 @@
         return $sp;
     }
    
-    function update_sanpham($ten_hh,$don_gia,$giam_gia,$mo_ta,$ngay_nhap,$dac_biet,$so_luong,$hinh){
-         if($hinh!=""){
-             $sql =  "UPDATE hang_hoa SET te_hh='.$ten_hh.'";
-         }
-         else{
-
-         }
+    function  update_sanpham($ma_hh,$ten_hh,$don_gia,$giam_gia,$mo_ta,$ngay_nhap,$dac_biet,$so_luong,$hinh){
+        if($hinh!="")
+        $sql="UPDATE hang_hoa set ten_hh='".$ten_hh."', don_gia='".$don_gia."',giam_gia='".$giam_gia."',mo_ta='".$mo_ta."',ngay_nhap='".$ngay_nhap."',dac_biet='".$dac_biet."',so_luong='".$so_luong."',hinh='".$hinh."' where ma_hh=".$ma_hh;
+    else 
+        $sql="UPDATE hang_hoa set ten_hh='".$ten_hh."', don_gia='".$don_gia."',giam_gia='".$giam_gia."',mo_ta='".$mo_ta."',ngay_nhap='".$ngay_nhap."',dac_biet='".$dac_biet."',so_luong='".$so_luong."'where ma_hh=".$ma_hh;
+    pdo_execute($sql);
     }
+
     function san_pham_select_by_loai($ma_loai){
         $sql = "SELECT * FROM hang_hoa WHERE ma_loai=?";
         return pdo_query($sql, $ma_loai);
     }
-
-?>

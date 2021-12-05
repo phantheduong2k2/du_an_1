@@ -1,31 +1,80 @@
+<head>
+    <style>
+        .carousel-item {
+            position: relative;
+        }
+
+        .tile {
+            position: absolute;
+            left: 0;
+            bottom: 450px;
+            display: inline-block !important;
+        }
+
+        .content-banner {
+            position: absolute;
+            left: 0;
+            bottom: 400px;
+            display: inline-block !important;
+        }
+
+        .link-banner {
+            position: absolute;
+            left: 0;
+            bottom: 350px;
+            display: inline-block !important;
+        }
+        .link-banner a{
+            text-decoration: none;
+        }
+        .btn{
+            padding: 10px 20px;
+            border: 1px solid #333 ;
+            display: inline-block;
+            color: white;
+            position: relative;
+            background-color: black;
+            transition: ease-in-out 0.5s;
+        }
+        
+       .link-banner:hover a{
+        background: #FDC86A;
+        transition: ease-in-out 0.5s;
+        -moz-box-shadow: 3px 3px 5px 0px #333;
+    -webkit-box-shadow: 3px 3px 5px 0px #333;
+    box-shadow: 3px 3px 5px 0px #333;
+    }
+      
+    </style>
+</head>
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-    
-    <div class="carousel-inner">
-        <?php foreach($slides as $slide){ 
-             extract($slide);
-            ?>
-        <div class="carousel-item active">
-            <img src="content/images/slide/<?= $hinh_anh ?>" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
+    <style></style>
+    <div class="one-time">
+        <?php foreach ($slides as $slide) {
+            extract($slide);
+        ?>
+            <div class="carousel-item active">
+                <img src="content/images/slide/<?= $hinh_anh ?>" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <div class="tile">
+                        <h1><?= $tieu_de ?></h1>
+                    </div>
+                    <div class="content-banner">
+                        <p><?= $noi_dung ?></p>
+                    </div>
+                    <div class="link-banner">
+                        <a  href="" class="btn"><?= $duong_dan ?></a>
+                    </div>
+                </div>
             </div>
-        </div>
         <?php } ?>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-    </button>
+
 </div>
 </div>
 <!-- end slide -->
@@ -88,5 +137,14 @@
     <!-- end products-->
 </div>
 
-
-				
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.js" integrity="sha512-eP8DK17a+MOcKHXC5Yrqzd8WI5WKh6F1TIk5QZ/8Lbv+8ssblcz7oGC8ZmQ/ZSAPa7ZmsCU4e/hcovqR8jfJqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="text/javascript">
+    $('.one-time').slick({
+        dots: true,
+        infinite: true,
+        speed: 300,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
+</script>

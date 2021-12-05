@@ -121,7 +121,8 @@ if (isset($_GET['act'])) {
                break;
                // ---------------END lẤY SẢN PHẨM CẦN SỬA--------------------//
           case 'updatesp';
-               if (isset($_GET['update']) && ($_GET['update'] > 0)) {
+               if (isset($_POST['capnhat_sp']) && ($_POST['capnhat_sp'] > 0)) {
+                    $ma_hh = $_POST['ma_hh'];
                     $ten_hh = $_POST['ten_hh'];
                     $don_gia = $_POST['don_gia'];
                     $giam_gia = $_POST['giam_gia'];
@@ -137,11 +138,14 @@ if (isset($_GET['act'])) {
                     } else {
                          //  echo "Sorry, there was an error uploading your file.";
                     }
-
-                    
+                    update_sanpham($ma_hh, $ten_hh, $don_gia, $giam_gia, $mo_ta, $ngay_nhap, $dac_biet, $so_luong,$hinh);
+                    $thongbao = "Cập nhật thành công";
                }
+               $listdanhmuc = loadall_danhmuc();
+               $listsanpham = loadall_sanpham();
+               include "hanghoa/list.php";
                break;
-          
+
                //------------KẾT THÚC DANH SÁCH SẢN PHẨM------------------------------------ 
 
           case 'dsbinhluan':
@@ -149,52 +153,50 @@ if (isset($_GET['act'])) {
                include  "binh-luan/list.php";
                break;
           case 'chi-tiet-binh-luan':
-               if(isset($_GET["ma_hh"])){ 
+               if (isset($_GET["ma_hh"])) {
                     $items = binh_luan_select_by_ma_hang_hoa($ma_hh);
-                    if(count($items) == 0){
-                    $items = thong_ke_binh_luan();
-                    include  "binh-luan/list.php";
-                    }else{
-                    include "binh-luan/detail.php";
+                    if (count($items) == 0) {
+                         $items = thong_ke_binh_luan();
+                         include  "binh-luan/list.php";
+                    } else {
+                         include "binh-luan/detail.php";
                     }
-               }else{
+               } else {
                     $items = thong_ke_binh_luan();
                     include  "binh-luan/list.php";
                }
                break;
           case 'xoa-binh-luan':
-               if(isset($_GET["btn_delete"])){
+               if (isset($_GET["btn_delete"])) {
                     try {
-                    binh_luan_delete($ma_bl);
-                    $MESSAGE = "Xóa thành công!";
-                    } 
-                    catch (Exception $exc) {
-                    $MESSAGE = "Xóa thất bại!";
+                         binh_luan_delete($ma_bl);
+                         $MESSAGE = "Xóa thành công!";
+                    } catch (Exception $exc) {
+                         $MESSAGE = "Xóa thất bại!";
                     }
                }
                $items = thong_ke_binh_luan();
                include  "binh-luan/list.php";
-          break;
-     //    end bình luận
+               break;
+               //    end bình luận
 
           case 'dsslide':
                $items =  slide_select_all();
                include  "slide/list.php";
                break;
           case 'xoa-slide':
-               if(isset($_GET["btn_delete"])){
-               if(isset($_GET["btn_delete"])){
-                    try {
-                         slide_delete($ma_slide);
-                         $MESSAGE = "Xóa thành công!";
-                    } 
-                    catch (Exception $exc) {
-                         $MESSAGE = "Xóa thất bại!";
+               if (isset($_GET["btn_delete"])) {
+                    if (isset($_GET["btn_delete"])) {
+                         try {
+                              slide_delete($ma_slide);
+                              $MESSAGE = "Xóa thành công!";
+                         } catch (Exception $exc) {
+                              $MESSAGE = "Xóa thất bại!";
+                         }
                     }
                }
-               }
-          $items = slide_select_all();
-          include  "slide/list.php";
+               $items = slide_select_all();
+               include  "slide/list.php";
                break;
 
           case 'nhap-them-slide':
@@ -202,24 +204,54 @@ if (isset($_GET['act'])) {
                break;
 
           case 'them-moi-slide':
-               if(isset($_POST['btn_insert'])){
-               $up_hinh = save_file("hinh_anh", "$IMAGE_DIR/slide/");
-               $hinh_anh = strlen($up_hinh) > 0 ? $up_hinh : 'slide.png';
-               try {
-                    slide_insert( $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
-                    unset( $tieu_de, $noi_dung, $duong_dan, $hinh_anh);
-                    $MESSAGE = 'Thêm mới thành công';
-               } catch (Exception $exc) {
-                    $MESSAGE = 'Thêm mới thất bại';
-               }
+               if (isset($_POST['btn_insert'])) {
+                    $hinh_anh = $_FILES['hinh_anh']['name'];
+                    $target_dir = "../content/images/slide/";
+                    $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
+                    if (move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file)) {
+                         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    } else {
+                         //  echo "Sorry, there was an error uploading your file.";
+                    }
+                    try {
+                         slide_insert($tieu_de, $noi_dung, $duong_dan, $hinh_anh);
+                         
+                         $MESSAGE = 'Thêm mới thành công';
+                    } catch (Exception $exc) {
+                         $MESSAGE = 'Thêm mới thất bại';
+                    }
                }
                include  "slide/new.php";
                break;
-          // End slide
+
+          case 'sua_slide':
+               if (isset($_GET['ma_slide']) && ($_GET['ma_slide'] > 0)) {
+                    $slide = loadone_slide($_GET['ma_slide']);
+               }
+
+               include "slide/update.php";
+               break;
+          case 'update_slide':
+               if (isset($_POST['capnhat_slide'])) {
+                    $hinh_anh = $_FILES['hinh_anh']['name'];
+                    $target_dir = "../content/images/slide/";
+                    $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
+                    if (move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file)) {
+                         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    } else {
+                         //  echo "Sorry, there was an error uploading your file.";
+                    }
+                         slide_update($tieu_de, $noi_dung, $duong_dan, $hinh_anh,$ma_slide);
+                         $MESSAGE = 'Thêm mới thành công';
+               }
+               $items =  slide_select_all();
+               include  "slide/list.php";
+               break;
+               // End slide
           default:
                include "template/home.php";
                break;
      }
-}else{
+} else {
      include "template/home.php";
 }
