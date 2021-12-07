@@ -62,7 +62,7 @@ foreach ($results as $result ) {
          
       
       <td>
-         <a class="btn btn-primary" href="index.php?act=update_khachhang">Update</a>
+      <a href="index.php?act=suakh&ma_kh=<?=$ma_kh?>">Sửa</a>
       </td>
       <td> 
          <a href="index.php?act=xoa-khachhang&btn_delete&ma_kh=<?=$ma_kh?>"  class="btn btn-danger" >Delete</a>               
@@ -72,6 +72,7 @@ foreach ($results as $result ) {
 </tbody>
   </table>
 </div>
+
 <!-- /.card-body -->
 </div>
 

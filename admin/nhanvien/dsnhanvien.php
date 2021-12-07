@@ -63,7 +63,7 @@ foreach ($results as $result ) {
       <td>      <?= $vai_tro ?> </td>
       
       <td>
-         <a class="btn btn-primary" href="#">Update</a>
+      <a href="index.php?act=suanv&ma_nv=<?=$ma_nv?>">Sửa</a>
       </td>
       <td> 
          <a href="index.php?act=xoa-nv&btn_delete&ma_nv=<?=$ma_nv?>"  class="btn btn-danger" >Delete</a>               

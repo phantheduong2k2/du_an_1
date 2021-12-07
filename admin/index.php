@@ -258,13 +258,7 @@ if (isset($_GET['act'])) {
                     $kich_hoat = $_POST['kich_hoat'];
                     $gioi_tinh = $_POST['gioi_tinh'];
                     $hinh = $_FILES['hinh']['name'];
-                    // $target_dir = "../content/images/products/";
-                    // $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
-                    // if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
-                    //      echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
-                    // } else {
-                    //       echo "Sorry, there was an error uploading your file.";
-                    // }
+                   
                     $fileUpload = $_FILES['hinh'];
                     if (strpos($fileUpload["type"], 'image') === false) {    
                         $_SESSION['error'] = "Avatar phải là ảnh";
@@ -287,15 +281,68 @@ if (isset($_GET['act'])) {
                }
                
            
-               include "khachhang/dskhachhang.php";
-                   
-                    
-                    
+               include "khachhang/dskhachhang.php";                                                       
+               break;
 
+          case 'suakh':
+               include_once "./../dao/khach-hang.php";
+               $dskhachhang = loadone_khachhang($ma_kh);
+               //     var_dump($dskhachhang); die();
+               include 'khachhang/xuly/update.php';
+                break;
+
+          case 'update_kh':
+               include_once "./../dao/khach-hang.php";
+             
+          //     var_dump($ma_kh); die();  var_dump($_REQUEST); die();
+               if (isset($_POST['btn_update']) ) {
+                   $ma_kh = $_POST['ma_kh'];
+                    $ten_kh = $_POST['ten_kh'];
+                    $email = $_POST['email'];
+                    $dia_chi = $_POST['dia_chi'];
+                    $ngay_sinh = $_POST['ngay_sinh'];
+                    $mat_khau = $_POST['mat_khau'];
+                    // $kich_hoat = $_POST['kich_hoat'];
+                    $gioi_tinh = $_POST['gioi_tinh'];
+                    $hinh = $_FILES['hinh']['name'];
+                    $target_dir = "../content/images/products/";
+                    $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                    if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    } else {
+                         //  echo "Sorry, there was an error uploading your file.";
+                    }
+
+                    $fileUpload = $_FILES['hinh'];
+                    if (strpos($fileUpload["type"], 'image') === false) {    
+                        $_SESSION['error'] = "Avatar phải là ảnh";
+                   
+                        die;
+                    }
+                    if ($fileUpload["size"] > 3000000) {
+                        $_SESSION['error'] = "Avatar phải nhỏ hơn 3M";
+                   
+                        die;
+                    }
+                    $storePath = '../content/images/products/';
+                    $filename = $fileUpload['name'];
+                    $path = $storePath . $filename;
+                    move_uploaded_file($fileUpload['tmp_name'], $path);
+                    $hinh = '../content/images/products/' . $filename;
+                   khach_hang_update($ma_kh, $ten_kh, $email , $sdt, $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh); 
+               }
+               include "khachhang/dskhachhang.php";  
                break;
-               case 'update_khachhang';
+
+              
                
-               break;
+               
+                       
+               
+               
+            
+                 
+               
           //------------KẾT THÚC DANH SÁCH DANH MỤC------------------------------------ //
           case 'dsnhanvien':
                include "nhanvien/dsnhanvien.php";
@@ -351,6 +398,56 @@ if (isset($_GET['act'])) {
                     include "./nhanvien/dsnhanvien.php";
      
                     break;
+                     //------------KẾT THÚC ------------------------------------ //
+                    case 'suanv':
+                         include_once "./../dao/nhan_vien.php";
+                         $dsnhanvien = loadone_nhanvien($ma_nv);
+                         //     var_dump($dskhachhang); die();
+                         include 'nhanvien/update.php';
+                          break;
+          
+                    case 'update_nv':
+                         include_once "./../dao/nhan_vien.php";
+                       
+                    //     var_dump($ma_kh); die();  var_dump($_REQUEST); die();
+                         if (isset($_POST['btn_update']) ) {
+                             $ma_nv = $_POST['ma_nv'];
+                              $ten_nv = $_POST['ten_nv'];
+                              $email = $_POST['email'];
+                              $dia_chi = $_POST['dia_chi'];
+                              $ngay_sinh = $_POST['ngay_sinh'];
+                              $mat_khau = $_POST['mat_khau'];
+                              // $kich_hoat = $_POST['kich_hoat'];
+                              $gioi_tinh = $_POST['gioi_tinh'];
+                              $hinh = $_FILES['hinh']['name'];
+                              $target_dir = "../content/images/products/";
+                              $target_file = $target_dir . basename($_FILES["hinh"]["name"]);
+                              if (move_uploaded_file($_FILES["hinh"]["tmp_name"], $target_file)) {
+                                   // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                              } else {
+                                   //  echo "Sorry, there was an error uploading your file.";
+                              }
+          
+                              $fileUpload = $_FILES['hinh'];
+                              if (strpos($fileUpload["type"], 'image') === false) {    
+                                  $_SESSION['error'] = "Avatar phải là ảnh";
+                             
+                                  die;
+                              }
+                              if ($fileUpload["size"] > 3000000) {
+                                  $_SESSION['error'] = "Avatar phải nhỏ hơn 3M";
+                             
+                                  die;
+                              }
+                              $storePath = '../content/images/products/';
+                              $filename = $fileUpload['name'];
+                              $path = $storePath . $filename;
+                              move_uploaded_file($fileUpload['tmp_name'], $path);
+                              $hinh = '../content/images/products/' . $filename;
+                              nhanvien_update($ma_nv, $ten_nv, $email , $sdt, $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh); 
+                         }
+                         include "nhanvien/dsnhanvien.php";  
+                         break;
 
 
                    
