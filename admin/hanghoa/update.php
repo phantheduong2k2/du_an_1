@@ -52,11 +52,12 @@ if (is_file($hinhpath)) {
                         <div class="custom-file">
                             <input type="file" class="custom-file-input" name="hinh" id="exampleInputFile">
                             <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                            <?= $hinh ?>
                         </div>
                     </div>
                     <!-- end -->
-                  
+                    <div class="form-group">
+                    <?= $hinh ?>
+                    </div>
                     <!-- end -->
                     <div class="form-group">
                         <label>Mô tả</label>
@@ -69,11 +70,10 @@ if (is_file($hinhpath)) {
                     <div class="form-group">
                         <label for="exampleInputPassword1">Sản phâm có đặc biệt hay không</label>
                         <br>
-                        <input type="radio" class="" name
-                        ="dac_biet" id="dac_biet" value="1">
+                        <input type="radio" class="" name="dac_biet" id="dac_biet" value="0" checked="checked">
                         <label for="dac_biet">Đặc biệt </label>
                         <br>
-                        <input type="radio" class="" name="dac_biet" id="dac_biet_1" value="0">
+                        <input type="radio" class="" name="dac_biet" id="dac_biet_1" value="1" checked="checked">
                         <label for="dac_biet_1">Không đặc biệt </label>
                     </div>
                     <div class="form-group">

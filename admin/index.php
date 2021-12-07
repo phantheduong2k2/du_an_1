@@ -223,6 +223,33 @@ if (isset($_GET['act'])) {
                }
                include  "slide/new.php";
                break;
+
+
+          case 'sua_slide':
+               if (isset($_GET['ma_slide']) && ($_GET['ma_slide'] > 0)) {
+                    $slide = loadone_slide($_GET['ma_slide']);
+               }
+
+               include "slide/update.php";
+               break;
+          case 'update_slide':
+               if (isset($_POST['capnhat_slide'])) {
+                    $hinh_anh = $_FILES['hinh_anh']['name'];
+                    $target_dir = "../content/images/slide/";
+                    $target_file = $target_dir . basename($_FILES["hinh_anh"]["name"]);
+                    if (move_uploaded_file($_FILES["hinh_anh"]["tmp_name"], $target_file)) {
+                         // echo "The file ". htmlspecialchars( basename( $_FILES["fileToUpload"]["name"])). " has been uploaded.";
+                    } else {
+                         //  echo "Sorry, there was an error uploading your file.";
+                    }
+                         slide_update($tieu_de, $noi_dung, $duong_dan, $hinh_anh,$ma_slide);
+                         $MESSAGE = 'Thêm mới thành công';
+               }
+               $items =  slide_select_all();
+               include  "slide/list.php";
+               break;
+               // End slide
+
           // End slide
           //------------KẾT THÚC DANH SÁCH DANH MỤC------------------------------------ //
           case 'dskhachhang':
@@ -362,6 +389,7 @@ if (isset($_GET['act'])) {
 
 
                    
+
           default:
                include "template/home.php";
                break;

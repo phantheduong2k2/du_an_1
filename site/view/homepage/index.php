@@ -53,8 +53,6 @@
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
     </div>
-<<<<<<< HEAD
-    <style></style>
     <div class="one-time">
         <?php foreach ($slides as $slide) {
             extract($slide);
@@ -74,21 +72,6 @@
                 </div>
             </div>
         <?php } ?>
-=======
-    
-    <div class="carousel-inner">
-     
-        <div class="carousel-item active">
-            <img src="content/images/slide/<?= $hinh_anh ?>" class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Some representative placeholder content for the first slide.</p>
-            </div>
-        </div>
-        
->>>>>>> 394cd89602d63d1fa2a63d82e765f18e9700b6c7
-    </div>
-
 </div>
 </div>
 <!-- end slide -->
