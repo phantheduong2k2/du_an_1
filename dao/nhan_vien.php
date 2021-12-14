@@ -1,4 +1,9 @@
 <?php
+function nhan_vien_select_by_id($ma_nv){
+    $sql = "SELECT * FROM nhan_vien WHERE ma_nv=?";
+    return pdo_query_one($sql, $ma_nv);
+}
+
 require_once "pdo.php";
 
 function get() {
@@ -37,9 +42,14 @@ function nhan_vien_insert($ma_nv, $ten_nv, $email,  $sdt , $dia_chi , $ngay_sinh
     $sql="insert into nhan_vien(ma_nv, ten_nv, email,  sdt , dia_chi , ngay_sinh ,mat_khau, hinh, gioi_tinh, kich_hoat, vai_tro) values(?,?,?,?,?,?,?,?,?,?,?)";
     pdo_execute($sql,$ma_nv, $ten_nv, $email,  $sdt , $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh==1, $kich_hoat==1, $vai_tro==1);
 }
-function nhan_vien_update($ma_nv, $ten_nv, $email, $mat_khau, $hinh, $gioi_tinh, $kich_hoat, $vai_tro){
-    $sql = "UPDATE nhan_vien SET ten_nv=?,email=?,mat_khau=?,hinh=?,gioi_tinh=?,kich_hoat=? WHERE ma_kh=?";
-    pdo_execute($sql, $ten_nv,$email,$mat_khau,$hinh,$gioi_tinh==1,$kich_hoat==1, $ma_kh);
+function nhanvien_update($ma_nv, $ten_nv, $email , $sdt, $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh, $kich_hoat , $vai_tro){
+    $sql = "UPDATE nhan_vien SET ten_nv=?,email=?,sdt=?,dia_chi=?,ngay_sinh=?, mat_khau=?,hinh=?,gioi_tinh=?,kich_hoat=?,vai_tro=? WHERE ma_nv=?";
+    pdo_execute($sql, $ten_nv, $email , $sdt, $dia_chi , $ngay_sinh ,$mat_khau, $hinh, $gioi_tinh==0,$kich_hoat==0, $vai_tro==0, $ma_nv);
+}
+function loadone_nhanvien($ma_nv){
+    $sql="select * from nhan_vien where ma_nv=?";
+    
+    return pdo_query_one($sql , $ma_nv);
 }
 function nhan_vien__select_all(){
     $sql = "SELECT * FROM nhan_vien";
@@ -49,3 +59,6 @@ function nhan_vien_delete($ma_nv){
     $sql = "DELETE FROM nhan_vien WHERE ma_nv=?";
         pdo_execute($sql, $ma_nv);
 }
+
+
+?>
